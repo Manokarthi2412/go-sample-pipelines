@@ -11,20 +11,20 @@ pipelines:
     steps:
      - name: build_go
        type: GoBuild
-      configuration:
-        sourceLocation: .
-        resolverRepo: quickstart-go-virtual
-        noRegistry: true
-        inputResources:
-          - name: go_repo
-        integrations:
-          - name: mkartifactory
+       configuration:
+         sourceLocation: .
+         resolverRepo: quickstart-go-virtual
+         noRegistry: true
+         inputResources:
+           - name: go_repo
+         integrations:
+           - name: mkartifactory
     #publish go sample 
-    - name: publish_go_binary
-      type: GoPublishBinary
-      configuration:
-        inputSteps:
-          - name: build_go
-        targetRepository: quickstarts-go-local
-        integrations:
-          - name: mkartifactory
+  - name: publish_go_binary
+    type: GoPublishBinary
+    configuration:
+      inputSteps:
+        - name: build_go
+      targetRepository: quickstarts-go-local
+      integrations:
+        - name: mkartifactory
