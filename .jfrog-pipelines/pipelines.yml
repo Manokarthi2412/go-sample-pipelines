@@ -17,14 +17,5 @@ pipelines:
            - name: go_repo_validate
          integrations:
            - name: mkartifactory
-    #publish go sample 
-  - name: publish_go_binary_
-    steps:
-      - name: publish_go
-        type: GoPublishBinary
-        configuration:
-          targetRepository: quickstarts-go-local
-          inputSteps:
-            - name: build_go_
-          integrations:
-            - name: mkartifactory
+   #----- publish go sample to be written
+
