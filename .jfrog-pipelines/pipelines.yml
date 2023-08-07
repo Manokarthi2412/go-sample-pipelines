@@ -16,7 +16,7 @@ pipelines:
            - name: go_repo_validate
          integrations:
            - name: mkartifactory
-   #----- publish go sample to be written
+   #----- publish go sample 
   - name : go_publish
     steps:
       - name: publish_go
