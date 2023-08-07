@@ -24,7 +24,7 @@ pipelines:
         configuration:
         inputSteps :
           - name : go_build
-          targetRepository: target_go_repo
-          integrations :
-            - name : mkartifactory
+        targetRepository: target_go_repo
+        integrations :
+          - name : mkartifactory
 
