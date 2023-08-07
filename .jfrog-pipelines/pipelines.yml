@@ -25,4 +25,5 @@ pipelines:
       targetRepository: go-repo
       autoPublishBuildInfo: false
       forceXrayScan: true
-      integrations : mkartifactory
+      integrations:
+        -name : mkartifactory
