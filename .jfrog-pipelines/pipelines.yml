@@ -10,7 +10,7 @@ pipelines:
   - name: go_pipeline
     steps:
      - name: build_go
-      type: GoBuild
+       type: GoBuild
       configuration:
         sourceLocation: .
         resolverRepo: quickstart-go-virtual
