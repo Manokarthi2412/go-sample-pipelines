@@ -12,15 +12,13 @@ pipelines:
      - name: build_go
        type: GoBuild
        configuration:
-         sourceLocation: .
-         resolverRepo: quickstart-go-virtual
          noRegistry: true
          inputResources:
-           - name: go_repo
+           - name: go_repo_validate
          integrations:
            - name: mkartifactory
     #publish go sample 
-  - name: publish_go_binary
+  - name: publish_go_binary_
     type: GoPublishBinary
     configuration:
       inputSteps:
