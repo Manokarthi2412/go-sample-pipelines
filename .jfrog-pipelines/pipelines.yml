@@ -17,4 +17,13 @@ pipelines:
          integrations:
            - name: mkartifactory
    #----- publish go sample to be written
+   - name : go_publish
+     steps:
+       - name: publish_go
+         type: GoPublishBinary
+         configuration:
+           targetRepository: target_go_repo
+           inputSteps :
+             - name : GoBuild
+           
 
