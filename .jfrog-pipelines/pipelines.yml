@@ -6,26 +6,20 @@ resources:
       path: Manokarthi2412/go-sample-pipelines
       branches:
         include: main
+
 pipelines:
-  - name: go_build_validate
-    steps:
-     - name: go_build
-       type: GoBuild
-       configuration:
-         affinityGroup: gobp_group
-         inputResources:
-           - name: go_repo_validate
-         integrations:
-           - name: mkartifactory
-   #----- publish go sample 
-  - name : go_publish
-    steps:
-      - name: publish_go
-        type: GoPublishBinary
-        configuration:
-          affinityGroup: gobp_group
-          inputSteps:
-            - name : go_build
-          targetRepository: target_go_repo
-          integrations:
-            - name : mkartifactory
+- name: goBuildPipeline
+  steps:
+  - name: goBuildStep
+    type: GoBuild
+    configuration:
+      inputResources:
+      - name: gitRepoResource
+      integrations:
+      - name: mkartifactory
+  - name: goPublishBinaryStep
+    type: GoPublishBinary
+    configuration:
+      targetRepository: go-repo
+      autoPublishBuildInfo: true
+      forceXrayScan: true
