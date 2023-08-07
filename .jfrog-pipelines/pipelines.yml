@@ -1,24 +1,25 @@
 resources:
-  - name: git_repo
+  - name: go_repo
     type: GitRepo
     configuration:
-      gitProvider: GitHub
-      path: my-repo
+      gitProvider: manokarthi_git
+      path: Manokarthi2412/go-sample-pipelines
       branches:
-        include: master
+        include: main
 pipelines:
-  name: go_pipeline
-  steps:
-    - name: build_go
+  - name: go_pipeline
+    steps:
+     - name: build_go
       type: GoBuild
       configuration:
-        sourceLocation: $res_git_repo_resourcePath/src
+        sourceLocation: .
         resolverRepo: quickstart-go-virtual
         noRegistry: true
         inputResources:
           - name: go_repo
         integrations:
           - name: mkartifactory
+    #publish go sample 
     - name: publish_go_binary
       type: GoPublishBinary
       configuration:
