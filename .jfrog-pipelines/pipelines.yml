@@ -7,23 +7,23 @@ resources:
       branches:
         include: main
 pipelines:
-  - name: goBuildPipeline
+  - name: goBuildPipeline 
     steps:
-     - name: goBuildStep
-       type: GoBuild
-       configuration:
-         inputResources:
-           - name: go_repo_validate
-         integrations:
-           - name: mkartifactory           
-      - name: goPublishBinaryStep
-        type: GoPublishBinary
-        configuration:
-          inputSteps:
-            - name : goBuildStep
-          targetRepository: target_go_repo
-          integrations:
-            - name : mkartifactory
+    - name: goBuildStep
+      type: GoBuild
+      configuration:
+        inputResources:
+        - name: go_repo_validate
+        integrations:
+        - name: mkartifactory           
+    - name: goPublishBinaryStep
+      type: GoPublishBinary
+      configuration:
+        inputSteps:
+          - name : goBuildStep
+        targetRepository: target_go_repo
+        integrations:
+          - name : mkartifactory
 
 
 
