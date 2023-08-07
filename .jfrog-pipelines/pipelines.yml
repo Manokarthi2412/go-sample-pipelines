@@ -26,6 +26,6 @@ pipelines:
           integrations :
             - name : mkartifactory
           inputSteps :
-            - name : go_build_validate
+            - name : build_go_
            
 
