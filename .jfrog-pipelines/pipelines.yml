@@ -14,7 +14,7 @@ pipelines:
     type: GoBuild
     configuration:
       inputResources:
-      - name: gitRepoResource
+      - name: go_repo_validate
       integrations:
       - name: mkartifactory
   - name: goPublishBinaryStep
