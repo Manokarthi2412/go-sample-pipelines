@@ -1,0 +1,29 @@
+resources:
+  - name: git_repo
+    type: GitRepo
+    configuration:
+      gitProvider: GitHub
+      path: my-repo
+      branches:
+        include: master
+pipelines:
+  name: go_pipeline
+  steps:
+    - name: build_go
+      type: GoBuild
+      configuration:
+        sourceLocation: $res_git_repo_resourcePath/src
+        resolverRepo: quickstart-go-virtual
+        noRegistry: true
+        inputResources:
+          - name: go_repo
+        integrations:
+          - name: mkartifactory
+    - name: publish_go_binary
+      type: GoPublishBinary
+      configuration:
+        inputSteps:
+          - name: build_go
+        targetRepository: quickstarts-go-local
+        integrations:
+          - name: mkartifactory
