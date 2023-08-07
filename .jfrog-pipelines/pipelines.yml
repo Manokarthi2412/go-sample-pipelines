@@ -23,6 +23,6 @@ pipelines:
       type: GoPublishBinary
       inputSteps:
         - name: build_go
-        targetRepository: quickstarts-go-local
-        integrations:
-          - name: mkartifactory
+          targetRepository: quickstarts-go-local
+          integrations:
+            - name: mkartifactory
