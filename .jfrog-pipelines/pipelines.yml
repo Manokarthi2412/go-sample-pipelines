@@ -7,7 +7,7 @@ resources:
       branches:
         include: main
 pipelines:
-  - name: go_pipeline_validate
+  - name: go_build_validate
     steps:
      - name: build_go_
        type: GoBuild
@@ -26,6 +26,6 @@ pipelines:
           integrations :
             - name : mkartifactory
           inputSteps :
-            - name : GoBuild
+            - name : go_build_validate
            
 
