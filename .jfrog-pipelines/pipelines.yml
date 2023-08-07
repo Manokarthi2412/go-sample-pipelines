@@ -1,8 +1,8 @@
 resources:
-  - name: go_rep0_validate
+  - name: go_repo_validate
     type: GitRepo
     configuration:
-      gitProvider: manokarthi_git
+      gitProvider: mkGithub
       path: Manokarthi2412/go-sample-pipelines
       branches:
         include: main
@@ -20,8 +20,8 @@ pipelines:
          integrations:
            - name: mkartifactory
     #publish go sample 
-  - name: publish_go_binary_validate
-    type: GoPublishBinary_validate
+  - name: publish_go_binary
+    type: GoPublishBinary
     configuration:
       inputSteps:
         - name: build_go
