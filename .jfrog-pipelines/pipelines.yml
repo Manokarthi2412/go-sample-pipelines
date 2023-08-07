@@ -23,7 +23,7 @@ pipelines:
         type: GoPublishBinary
         configuration:
           targetRepository: target_go_repo
-          inputSteps :
-            - name : GoBuild
+          integrations :
+            - name : mkartifactory
            
 
