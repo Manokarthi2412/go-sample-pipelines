@@ -12,7 +12,6 @@ pipelines:
      - name: build_go_
        type: GoBuild
        configuration:
-         noRegistry: true
          inputResources:
            - name: go_repo_validate
          integrations:
