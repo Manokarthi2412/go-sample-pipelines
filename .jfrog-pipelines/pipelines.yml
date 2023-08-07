@@ -9,7 +9,7 @@ resources:
 pipelines:
   - name: go_build_validate
     steps:
-     - name: build_go
+     - name: go_build
        type: GoBuild
        configuration:
          inputResources:
@@ -26,4 +26,4 @@ pipelines:
           integrations :
             - name : mkartifactory
           inputSteps :
-            - name : build_go
+            - name : go_build
