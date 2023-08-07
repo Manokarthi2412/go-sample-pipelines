@@ -25,13 +25,3 @@ pipelines:
           targetRepository: target_go_repo
           integrations :
             - name : mkartifactory
-          inputSteps :
-            - name : build_go_
-
-  - name: publish_build
-    type: PublishBuildInfo
-    configuration:
-      inputSteps:
-        - name: publish_go_binary
-      outputResources:
-        - name: go_buildinfo
