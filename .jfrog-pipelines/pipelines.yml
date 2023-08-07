@@ -20,6 +20,8 @@ pipelines:
   - name: goPublishBinaryStep
     type: GoPublishBinary
     configuration:
+      inputSteps :
+        - name : goBuildStep
       targetRepository: go-repo
       autoPublishBuildInfo: true
       forceXrayScan: true
