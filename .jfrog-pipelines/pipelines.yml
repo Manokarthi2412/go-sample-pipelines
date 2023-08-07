@@ -17,11 +17,13 @@ pipelines:
          integrations:
            - name: mkartifactory
    #----- publish go sample 
-  - name: publish_go_binary
-    type: GoPublishBinary
-    configuration:
-      inputSteps:
-        - name: go_build
-      targetRepository: quickstarts-go-local
-      integrations:
-        - name: mkartifactory
+ - name : go_publish
+    steps:
+      - name: publish_go
+        type: GoPublishBinary
+        configuration:
+          inputSteps:
+            - name : go_build
+          targetRepository: target_go_repo
+          integrations:
+            - name : mkartifactory
