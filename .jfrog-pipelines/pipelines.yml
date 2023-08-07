@@ -23,5 +23,5 @@ pipelines:
       inputSteps :
         - name : goBuildStep
       targetRepository: go-repo
-      autoPublishBuildInfo: true
+      autoPublishBuildInfo: false
       forceXrayScan: true
