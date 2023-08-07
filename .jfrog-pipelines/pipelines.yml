@@ -9,7 +9,7 @@ resources:
 pipelines:
   - name: go_pipeline_validate
     steps:
-     - name: build_go
+     - name: build_go_
        type: GoBuild
        configuration:
          noRegistry: true
@@ -25,6 +25,6 @@ pipelines:
         configuration:
           targetRepository: quickstarts-go-local
           inputSteps:
-            - name: build_go
+            - name: build_go_
           integrations:
             - name: mkartifactory
