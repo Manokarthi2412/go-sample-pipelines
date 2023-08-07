@@ -6,24 +6,27 @@ resources:
       path: Manokarthi2412/go-sample-pipelines
       branches:
         include: main
-
 pipelines:
-- name: goBuildPipeline
-  steps:
-  - name: goBuildStep
-    type: GoBuild
-    configuration:
-      inputResources:
-      - name: go_repo_validate
-      integrations:
-      - name: mkartifactory
-  - name: goPublishBinaryStep
-    type: GoPublishBinary
-    configuration:
-      inputSteps :
-        - name : goBuildStep
-      targetRepository: go-repo
-      autoPublishBuildInfo: false
-      forceXrayScan: true
-      integrations: 
-      - name: mkartifactory
+  - name: goBuildPipeline
+    steps:
+     - name: goBuildStep
+       type: GoBuild
+       configuration:
+         inputResources:
+           - name: go_repo_validate
+         integrations:
+           - name: mkartifactory           
+      - name: goPublishBinaryStep
+        type: GoPublishBinary
+        configuration:
+          inputSteps:
+            - name : goBuildStep
+          targetRepository: target_go_repo
+          integrations:
+            - name : mkartifactory
+
+
+
+
+
+
