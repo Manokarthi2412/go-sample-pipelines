@@ -22,9 +22,9 @@ pipelines:
       - name: publish_go
         type: GoPublishBinary
         configuration:
-        inputSteps :
-          - name : go_build
-        targetRepository: target_go_repo
-        integrations :
-          - name : mkartifactory
+          inputSteps :
+            - name : go_build
+          targetRepository: target_go_repo
+          integrations :
+            - name : mkartifactory
 
