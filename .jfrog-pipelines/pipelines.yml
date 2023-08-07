@@ -12,7 +12,7 @@ pipelines:
      - name: go_build
        type: GoBuild
        configuration:
-         affinityGroup: gobuild_group
+         affinityGroup: gobp_group
          inputResources:
            - name: go_repo_validate
          integrations:
@@ -23,7 +23,7 @@ pipelines:
       - name: publish_go
         type: GoPublishBinary
         configuration:
-          affinityGroup: gobuild_group
+          affinityGroup: gobp_group
           inputSteps:
             - name : go_build
           targetRepository: target_go_repo
